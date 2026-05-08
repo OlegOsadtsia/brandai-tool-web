@@ -457,20 +457,21 @@
         });
 
       function generateNames() {
-        const input = document.getElementById("keywords").value.trim();
+        const inputField = document.getElementById("keywords");
+        const input = inputField.value.trim();
+
+        // Якщо поле порожнє або занадто коротке — мовчки виходимо (для авто-генерації категорій)
         if (input.length < 2) {
-          alert(
-            navigator.language.startsWith("uk")
-              ? "Будь ласка, введіть ключове слово"
-              : "Please enter a keyword",
-          );
           return;
         }
 
         // Отримуємо обрану категорію та словник
-        const category = document.querySelector(
+        const categoryElement = document.querySelector(
           'input[name="category"]:checked',
-        ).value;
+        );
+        if (!categoryElement) return; // Про всяк випадок, якщо нічого не вибрано
+
+        const category = categoryElement.value;
         const { prefixes, suffixes } = dictionaries[category];
 
         const keyword = input.split(" ")[0].toLowerCase();
@@ -482,21 +483,24 @@
 
         const suggestions = new Set();
 
-        // Генерація 10 варіантів на основі словника категорії
-        for (let i = 0; i < 4; i++)
+        // Генерація варіантів на основі словника категорії
+        for (let i = 0; i < 4; i++) {
           suggestions.add(
             prefixes[Math.floor(Math.random() * prefixes.length)] + keyword,
           );
-        for (let i = 0; i < 4; i++)
+        }
+        for (let i = 0; i < 4; i++) {
           suggestions.add(
             keyword + suffixes[Math.floor(Math.random() * suffixes.length)],
           );
+        }
 
         suggestions.add(keyword + "ify");
         suggestions.add(
           "Get" + keyword.charAt(0).toUpperCase() + keyword.slice(1),
         );
 
+        // Створюємо картки
         suggestions.forEach((name) => {
           const cleanName = name.charAt(0).toUpperCase() + name.slice(1);
           const domainName = `${name.toLowerCase()}.com`;
@@ -510,10 +514,11 @@
             <button onclick="window.open('${domainUrl}', '_blank', 'noreferrer')" class="w-full bg-[#7cffc4]/10 text-[#7cffc4] py-3 px-4 rounded-xl hover:bg-[#7cffc4] hover:text-black transition-all font-bold text-center block text-xs uppercase tracking-widest">
                 ${navigator.language.startsWith("uk") ? "Перевірити домен" : "Check Availability"}
             </button>
-          `;
+        `;
           grid.appendChild(card);
         });
 
+        // Плавний скрол до результатів
         setTimeout(() => {
           section.scrollIntoView({ behavior: "smooth", block: "start" });
         }, 100);
