@@ -65,13 +65,19 @@
         <div
           class="hidden md:flex space-x-8 text-sm font-semibold text-gray-400"
         >
-          <a href="#how-it-works" class="hover:text-[#7cffc4] transition"
+          <a
+            href="#how-it-works"
+            id="nav-how"
+            class="hover:text-[#7cffc4] transition"
             >How it works</a
           >
-          <a href="#tool" class="hover:text-[#7cffc4] transition">Generate</a>
+          <a href="#tool" id="nav-gen" class="hover:text-[#7cffc4] transition"
+            >Generate</a
+          >
           <a
             href="https://www.namecheap.com/"
             target="_blank"
+            id="nav-check"
             class="hover:text-white transition"
             >Check Domain</a
           >
@@ -81,15 +87,65 @@
 
     <main class="max-w-5xl mx-auto px-4 py-16">
       <header class="text-center mb-16">
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
+        <h1
+          id="main-title"
+          class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight"
+        >
           Your next big brand starts <span class="gradient-text">here.</span>
         </h1>
-        <p class="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+        <p
+          id="main-desc"
+          class="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed"
+        >
           Enter your industry keywords and let our AI-powered logic craft a
           unique identity for your startup.
         </p>
       </header>
 
+      <div
+        class="flex justify-center items-center gap-4 mb-8 text-xs font-bold uppercase tracking-widest overflow-x-auto py-4 px-2 min-h-[60px]"
+      >
+        <label class="cursor-pointer flex-shrink-0">
+          <input
+            type="radio"
+            name="category"
+            value="tech"
+            checked
+            class="hidden peer"
+            onchange="generateNames()"
+          />
+          <span
+            class="px-5 py-2.5 rounded-full border border-white/10 peer-checked:border-[#7cffc4] peer-checked:text-[#7cffc4] transition-all bg-white/5 hover:bg-white/10 block"
+            >Tech</span
+          >
+        </label>
+        <label class="cursor-pointer flex-shrink-0">
+          <input
+            type="radio"
+            name="category"
+            value="eco"
+            class="hidden peer"
+            onchange="generateNames()"
+          />
+          <span
+            class="px-5 py-2.5 rounded-full border border-white/10 peer-checked:border-[#7cffc4] peer-checked:text-[#7cffc4] transition-all bg-white/5 hover:bg-white/10 block"
+            >Eco</span
+          >
+        </label>
+        <label class="cursor-pointer flex-shrink-0">
+          <input
+            type="radio"
+            name="category"
+            value="luxury"
+            class="hidden peer"
+            onchange="generateNames()"
+          />
+          <span
+            class="px-5 py-2.5 rounded-full border border-white/10 peer-checked:border-[#7cffc4] peer-checked:text-[#7cffc4] transition-all bg-white/5 hover:bg-white/10 block"
+            >Luxury</span
+          >
+        </label>
+      </div>
       <div
         id="tool"
         class="glass p-3 rounded-2xl mb-12 flex flex-col md:flex-row gap-3 shadow-2xl"
@@ -102,6 +158,7 @@
         />
         <button
           onclick="generateNames()"
+          id="gen-btn"
           class="bg-[#7cffc4] text-black font-extrabold px-12 py-5 rounded-xl hover:bg-[#4fffb0] transition-all transform active:scale-95 shadow-[0_0_20px_rgba(124,255,196,0.3)]"
         >
           Generate Names
@@ -110,6 +167,7 @@
 
       <div id="results-section" class="hidden">
         <h2
+          id="results-title"
           class="text-xl font-bold mb-8 text-[#7cffc4] uppercase tracking-widest text-center"
         >
           Recommended Brand Names
@@ -123,10 +181,13 @@
       <section id="how-it-works" class="mt-32 border-t border-white/5 pt-20">
         <div class="grid md:grid-cols-2 gap-16 leading-relaxed">
           <div>
-            <h2 class="text-3xl font-bold mb-6 italic text-[#7cffc4]">
+            <h2
+              id="hiw-title"
+              class="text-3xl font-bold mb-6 italic text-[#7cffc4]"
+            >
               Professional Brand Naming
             </h2>
-            <p class="text-gray-400 mb-6">
+            <p id="hiw-desc" class="text-gray-400 mb-6">
               Our tool uses advanced linguistic patterns to generate names that
               are psychologically "sticky". We analyze phonetics, word length,
               and industry trends to give you the best options for your future
@@ -134,35 +195,35 @@
             </p>
             <ul class="space-y-4 text-sm text-gray-300 font-medium">
               <li class="flex items-center gap-3">
-                <span class="text-[#7cffc4]">✔</span> 100% Free AI-driven
-                suggestions
+                <span class="text-[#7cffc4]">✔</span>
+                <span id="feat-1">100% Free AI-driven suggestions</span>
               </li>
               <li class="flex items-center gap-3">
-                <span class="text-[#7cffc4]">✔</span> Instant .com availability
-                check
+                <span class="text-[#7cffc4]">✔</span>
+                <span id="feat-2">Instant .com availability check</span>
               </li>
               <li class="flex items-center gap-3">
-                <span class="text-[#7cffc4]">✔</span> High-conversion naming
-                formulas
+                <span class="text-[#7cffc4]">✔</span>
+                <span id="feat-3">High-conversion naming formulas</span>
               </li>
             </ul>
           </div>
           <div class="space-y-6">
             <div class="glass p-6 rounded-2xl">
-              <h3 class="font-bold text-white mb-2 text-lg">
+              <h3 id="card1-title" class="font-bold text-white mb-2 text-lg">
                 Why Business Name Matters?
               </h3>
-              <p class="text-sm text-gray-400">
+              <p id="card1-desc" class="text-sm text-gray-400">
                 A name is the first touchpoint with your audience. A great name
                 reduces marketing costs and increases brand recall
                 significantly.
               </p>
             </div>
             <div class="glass p-6 rounded-2xl">
-              <h3 class="font-bold text-white mb-2 text-lg">
+              <h3 id="card2-title" class="font-bold text-white mb-2 text-lg">
                 Instant Domain Search
               </h3>
-              <p class="text-sm text-gray-400">
+              <p id="card2-desc" class="text-sm text-gray-400">
                 We don't just give names; we provide direct links to secure your
                 digital real estate on Namecheap before someone else does.
               </p>
@@ -182,16 +243,17 @@
               class="text-[#7cffc4] text-xs font-bold uppercase tracking-widest"
               >Official Partner</span
             >
-            <h2 class="text-3xl font-bold mt-2">
+            <h2 id="partner-title" class="text-3xl font-bold mt-2">
               Ready to secure your domain?
             </h2>
-            <p class="text-gray-400 mt-2">
+            <p id="partner-desc" class="text-gray-400 mt-2">
               Get the best prices and 24/7 support with Namecheap.
             </p>
           </div>
           <a
             href="https://www.namecheap.com/"
             target="_blank"
+            id="partner-btn"
             class="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-gray-200 transition"
             >Visit Namecheap</a
           >
@@ -230,46 +292,166 @@
     </footer>
 
     <script>
-      const prefixes = [
-        "Nex",
-        "Vora",
-        "Aura",
-        "Zync",
-        "Flux",
-        "Omni",
-        "Sync",
-        "Alt",
-        "Bio",
-        "Cloud",
-        "Zen",
-        "Neo",
-        "Velos",
-        "Hyper",
-        "Giga",
-      ];
-      const suffixes = [
-        "ly",
-        "ify",
-        "ia",
-        "io",
-        "ora",
-        "zen",
-        "hub",
-        "lab",
-        "flow",
-        "grid",
-        "vista",
-        "wave",
-        "logic",
-        "sphere",
-        "node",
-      ];
+      // Тематичні словники
+      const dictionaries = {
+        tech: {
+          prefixes: [
+            "Nex",
+            "Vora",
+            "Zync",
+            "Flux",
+            "Quantum",
+            "Cyber",
+            "Data",
+            "Bit",
+            "Neural",
+            "Sync",
+            "Nova",
+            "Vertex",
+          ],
+          suffixes: [
+            "ly",
+            "io",
+            "labs",
+            "node",
+            "grid",
+            "flow",
+            "logic",
+            "sphere",
+            "cloud",
+            "bit",
+            "tech",
+            "ify",
+          ],
+        },
+        eco: {
+          prefixes: [
+            "Leaf",
+            "Bio",
+            "Eco",
+            "Root",
+            "Green",
+            "Terra",
+            "Flora",
+            "Pure",
+            "Solar",
+            "Bloom",
+            "Nature",
+            "Wild",
+          ],
+          suffixes: [
+            "ia",
+            "zen",
+            "growth",
+            "earth",
+            "life",
+            "forest",
+            "aura",
+            "base",
+            "way",
+            "tree",
+            "plant",
+            "pure",
+          ],
+        },
+        luxury: {
+          prefixes: [
+            "Aura",
+            "Elite",
+            "Prime",
+            "Royal",
+            "Apex",
+            "Vogue",
+            "Luxe",
+            "Grand",
+            "Privé",
+            "Stellar",
+            "Noble",
+            "Opus",
+          ],
+          suffixes: [
+            "ora",
+            "vista",
+            "vibe",
+            "gold",
+            "house",
+            "club",
+            "mode",
+            "chic",
+            "rich",
+            "stay",
+            "silk",
+            "line",
+          ],
+        },
+      };
+
+      // Локалізація
+      const translations = {
+        ua: {
+          mainTitle:
+            'Твій наступний великий бренд починається <span class="gradient-text">тут.</span>',
+          mainDesc:
+            "Введи ключові слова своєї галузі, і наша логіка на основі AI створить унікальну назву для твого стартапу.",
+          placeholder: "напр. тех, еко, фенш...",
+          genBtn: "Генерувати назви",
+          navHow: "Як це працює",
+          navGen: "Генератор",
+          navCheck: "Перевірити домен",
+          resultsTitle: "Рекомендовані назви брендів",
+          hiwTitle: "Професійний неймінг",
+          hiwDesc:
+            'Наш інструмент використовує лінгвістичні шаблони для створення назв, які "зачіпляють". Ми аналізуємо фонетику та тренди.',
+          feat1: "100% безкоштовні пропозиції",
+          feat2: "Миттєва перевірка .com доменів",
+          feat3: "Формули неймінгу з високою конверсією",
+          card1Title: "Чому назва важлива?",
+          card1Desc:
+            "Назва — це перший контакт з аудиторією. Хороша назва знижує витрати на маркетинг.",
+          card2Title: "Миттєвий пошук домену",
+          card2Desc:
+            "Ми не просто даємо назви, а надаємо прямі посилання для реєстрації на Namecheap.",
+          partnerTitle: "Готові забронювати домен?",
+          partnerDesc: "Отримайте найкращі ціни та підтримку 24/7 з Namecheap.",
+          partnerBtn: "Відвідати Namecheap",
+        },
+      };
+
+      // Функція застосування мови
+      function applyLanguage() {
+        const lang = navigator.language.startsWith("uk") ? "ua" : "en";
+        if (lang === "ua") {
+          const t = translations.ua;
+          document.getElementById("main-title").innerHTML = t.mainTitle;
+          document.getElementById("main-desc").innerText = t.mainDesc;
+          document.getElementById("keywords").placeholder = t.placeholder;
+          document.getElementById("gen-btn").innerText = t.genBtn;
+          document.getElementById("nav-how").innerText = t.navHow;
+          document.getElementById("nav-gen").innerText = t.navGen;
+          document.getElementById("nav-check").innerText = t.navCheck;
+          document.getElementById("results-title").innerText = t.resultsTitle;
+          document.getElementById("hiw-title").innerText = t.hiwTitle;
+          document.getElementById("hiw-desc").innerText = t.hiwDesc;
+          document.getElementById("feat-1").innerText = t.feat1;
+          document.getElementById("feat-2").innerText = t.feat2;
+          document.getElementById("feat-3").innerText = t.feat3;
+          document.getElementById("card1-title").innerText = t.card1Title;
+          document.getElementById("card1-desc").innerText = t.card1Desc;
+          document.getElementById("card2-title").innerText = t.card2Title;
+          document.getElementById("card2-desc").innerText = t.card2Desc;
+          document.getElementById("partner-title").innerText = t.partnerTitle;
+          document.getElementById("partner-desc").innerText = t.partnerDesc;
+          document.getElementById("partner-btn").innerText = t.partnerBtn;
+        }
+      }
+
+      window.onload = applyLanguage;
 
       document
         .getElementById("keywords")
         .addEventListener("keypress", function (event) {
           if (event.key === "Enter") {
-            event.preventDefault(); // Щоб сторінка не перезавантажувалася
+            event.preventDefault();
             generateNames();
           }
         });
@@ -277,9 +459,19 @@
       function generateNames() {
         const input = document.getElementById("keywords").value.trim();
         if (input.length < 2) {
-          alert("Please enter a keyword (e.g. 'Tech' or 'Eco')");
+          alert(
+            navigator.language.startsWith("uk")
+              ? "Будь ласка, введіть ключове слово"
+              : "Please enter a keyword",
+          );
           return;
         }
+
+        // Отримуємо обрану категорію та словник
+        const category = document.querySelector(
+          'input[name="category"]:checked',
+        ).value;
+        const { prefixes, suffixes } = dictionaries[category];
 
         const keyword = input.split(" ")[0].toLowerCase();
         const grid = document.getElementById("resultsGrid");
@@ -290,7 +482,7 @@
 
         const suggestions = new Set();
 
-        // Генерація 10 варіантів
+        // Генерація 10 варіантів на основі словника категорії
         for (let i = 0; i < 4; i++)
           suggestions.add(
             prefixes[Math.floor(Math.random() * prefixes.length)] + keyword,
@@ -299,6 +491,7 @@
           suggestions.add(
             keyword + suffixes[Math.floor(Math.random() * suffixes.length)],
           );
+
         suggestions.add(keyword + "ify");
         suggestions.add(
           "Get" + keyword.charAt(0).toUpperCase() + keyword.slice(1),
@@ -307,19 +500,17 @@
         suggestions.forEach((name) => {
           const cleanName = name.charAt(0).toUpperCase() + name.slice(1);
           const domainName = `${name.toLowerCase()}.com`;
-
-          // Оновлений формат посилання (Варіант з /registration/)
           const domainUrl = `https://www.namecheap.com/domains/registration/results/?domain=${domainName}`;
 
           const card = document.createElement("div");
           card.className = "glass p-8 rounded-3xl name-card group";
           card.innerHTML = `
-        <div class="text-[10px] text-gray-500 mb-2 uppercase tracking-[0.2em] font-bold">Domain .COM</div>
-        <div class="text-2xl font-bold mb-6 group-hover:text-[#7cffc4] transition capitalize">${cleanName}</div>
-        <button onclick="window.open('${domainUrl}', '_blank', 'noreferrer')" class="w-full bg-[#7cffc4]/10 text-[#7cffc4] py-3 px-4 rounded-xl hover:bg-[#7cffc4] hover:text-black transition-all font-bold text-center block text-xs uppercase tracking-widest">
-            Check Availability
-        </button>
-    `;
+            <div class="text-[10px] text-gray-500 mb-2 uppercase tracking-[0.2em] font-bold">Domain .COM</div>
+            <div class="text-2xl font-bold mb-6 group-hover:text-[#7cffc4] transition capitalize">${cleanName}</div>
+            <button onclick="window.open('${domainUrl}', '_blank', 'noreferrer')" class="w-full bg-[#7cffc4]/10 text-[#7cffc4] py-3 px-4 rounded-xl hover:bg-[#7cffc4] hover:text-black transition-all font-bold text-center block text-xs uppercase tracking-widest">
+                ${navigator.language.startsWith("uk") ? "Перевірити домен" : "Check Availability"}
+            </button>
+          `;
           grid.appendChild(card);
         });
 
