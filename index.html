@@ -265,6 +265,15 @@
         "node",
       ];
 
+      document
+        .getElementById("keywords")
+        .addEventListener("keypress", function (event) {
+          if (event.key === "Enter") {
+            event.preventDefault(); // Щоб сторінка не перезавантажувалася
+            generateNames();
+          }
+        });
+
       function generateNames() {
         const input = document.getElementById("keywords").value.trim();
         if (input.length < 2) {
@@ -297,15 +306,20 @@
 
         suggestions.forEach((name) => {
           const cleanName = name.charAt(0).toUpperCase() + name.slice(1);
-          const domainUrl = `https://www.namecheap.com/domains/registration-results/?domain=${name.toLowerCase()}.com`;
+          const domainName = `${name.toLowerCase()}.com`;
+
+          // Оновлений формат посилання (Варіант з /registration/)
+          const domainUrl = `https://www.namecheap.com/domains/registration/results/?domain=${domainName}`;
 
           const card = document.createElement("div");
           card.className = "glass p-8 rounded-3xl name-card group";
           card.innerHTML = `
-            <div class="text-[10px] text-gray-500 mb-2 uppercase tracking-[0.2em] font-bold">Domain .COM</div>
-            <div class="text-2xl font-bold mb-6 group-hover:text-[#7cffc4] transition capitalize">${cleanName}</div>
-            <a href="${domainUrl}" target="_blank" class="w-full bg-[#7cffc4]/10 text-[#7cffc4] py-3 px-4 rounded-xl hover:bg-[#7cffc4] hover:text-black transition-all font-bold text-center block text-xs uppercase tracking-widest">Check Availability</a>
-          `;
+        <div class="text-[10px] text-gray-500 mb-2 uppercase tracking-[0.2em] font-bold">Domain .COM</div>
+        <div class="text-2xl font-bold mb-6 group-hover:text-[#7cffc4] transition capitalize">${cleanName}</div>
+        <button onclick="window.open('${domainUrl}', '_blank', 'noreferrer')" class="w-full bg-[#7cffc4]/10 text-[#7cffc4] py-3 px-4 rounded-xl hover:bg-[#7cffc4] hover:text-black transition-all font-bold text-center block text-xs uppercase tracking-widest">
+            Check Availability
+        </button>
+    `;
           grid.appendChild(card);
         });
 
