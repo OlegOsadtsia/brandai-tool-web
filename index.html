@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      BrandAI Tool — AI Business Name Generator & Domain Search with suggestions
-    </title>
+    <title>BrandAI Tool — AI Business Name & Domain Generator</title>
     <meta
       name="description"
       content="Generate unique, catchy business names with AI. Check .com domain availability instantly and start your brand today. Professional naming tool for startups."
@@ -17,20 +15,20 @@
 
     <meta
       property="og:title"
-      content="BrandAI Tool — Instant AI Business Name Generator with suggestions"
+      content="BrandAI Tool — AI Business Name & Domain Generator"
     />
     <meta
       property="og:description"
       content="Struggling to find a brand name? Use our AI logic to generate perfect names and check domain availability in one click. Free and fast."
     />
-    <meta property="og:image" content="https://brandai-tool.com/og-image.png" />
+    <meta property="og:image" content="https://brandai-tool.com/og-image.jpg" />
     <meta property="og:url" content="https://brandai-tool.com" />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="BrandAI Tool — AI Business Name Generator"
+      content="BrandAI Tool — AI Business Name & Domain Generator"
     />
     <meta
       name="twitter:description"
@@ -38,7 +36,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://brandai-tool.com/og-image.png"
+      content="https://brandai-tool.com/og-image.jpg"
     />
 
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -588,25 +586,27 @@
           "Get" + keyword.charAt(0).toUpperCase() + keyword.slice(1),
         );
 
-suggestions.forEach((name) => {
-    const cleanName = name.charAt(0).toUpperCase() + name.slice(1);
-    const domainName = `${name.toLowerCase()}.com`;
-    
-    const partnerBase = "https://namecheap.pxf.io/c/7282113/386170/5618";
-    const targetUrl = encodeURIComponent(`https://www.namecheap.com/domains/registration/results/?domain=${domainName}`);
-    const domainUrl = `${partnerBase}?u=${targetUrl}`;
+        suggestions.forEach((name) => {
+          const cleanName = name.charAt(0).toUpperCase() + name.slice(1);
+          const domainName = `${name.toLowerCase()}.com`;
 
-    const card = document.createElement("div");
-    card.className = "glass p-8 rounded-3xl name-card group";
-    card.innerHTML = `
+          const partnerBase = "https://namecheap.pxf.io/c/7282113/386170/5618";
+          const targetUrl = encodeURIComponent(
+            `https://www.namecheap.com/domains/registration/results/?domain=${domainName}`,
+          );
+          const domainUrl = `${partnerBase}?u=${targetUrl}`;
+
+          const card = document.createElement("div");
+          card.className = "glass p-8 rounded-3xl name-card group";
+          card.innerHTML = `
         <div class="text-[10px] text-gray-500 mb-2 uppercase tracking-[0.2em] font-bold">Domain .COM</div>
         <div class="text-2xl font-bold mb-6 group-hover:text-[#7cffc4] transition capitalize">${cleanName}</div>
         <button onclick="window.open('${domainUrl}', '_blank', 'noreferrer')" class="w-full bg-[#7cffc4]/10 text-[#7cffc4] py-3 px-4 rounded-xl hover:bg-[#7cffc4] hover:text-black transition-all font-bold text-center block text-xs uppercase tracking-widest">
             ${navigator.language.startsWith("uk") ? "Перевірити домен" : "Check Availability"}
         </button>
     `;
-    grid.appendChild(card);
-});
+          grid.appendChild(card);
+        });
         setTimeout(() => {
           section.scrollIntoView({ behavior: "smooth", block: "start" });
         }, 100);
