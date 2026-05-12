@@ -206,7 +206,7 @@
       </div>
       <div
         id="tool"
-        class="glass p-3 rounded-2xl mb-12 flex flex-col md:flex-row gap-3 shadow-2xl"
+        class="glass p-3 rounded-2xl mb-2 flex flex-col md:flex-row gap-3 shadow-2xl"
       >
         <input
           type="text"
@@ -221,6 +221,10 @@
         >
           Generate Names
         </button>
+      </div>
+
+      <div class="text-gray-400 text-sm leading-relaxed mb-12">
+        Found a name you love? Register it before someone else does.
       </div>
 
       <div id="results-section" class="hidden">
@@ -486,7 +490,7 @@
           genBtn: "Генерувати назви",
           navHow: "Як це працює",
           navGen: "Генератор",
-          navCheck: "Перевірити домен",
+          navCheck: "Отримати домен",
           resultsTitle: "Рекомендовані назви брендів",
           hiwTitle: "Професійний неймінг",
           hiwDesc:
@@ -602,7 +606,7 @@
         <div class="text-[10px] text-gray-500 mb-2 uppercase tracking-[0.2em] font-bold">Domain .COM</div>
         <div class="text-2xl font-bold mb-6 group-hover:text-[#7cffc4] transition capitalize">${cleanName}</div>
         <button onclick="window.open('${domainUrl}', '_blank', 'noreferrer')" class="w-full bg-[#7cffc4]/10 text-[#7cffc4] py-3 px-4 rounded-xl hover:bg-[#7cffc4] hover:text-black transition-all font-bold text-center block text-xs uppercase tracking-widest">
-            ${navigator.language.startsWith("uk") ? "Перевірити домен" : "Check Availability"}
+            ${navigator.language.startsWith("uk") ? "Перевірити домен" : "Get this Domain"}
         </button>
     `;
           grid.appendChild(card);
